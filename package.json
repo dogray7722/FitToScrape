@@ -1,0 +1,26 @@
+{
+  "name": "fit2scrape",
+  "version": "1.0.0",
+  "description": "All the modules needed for our app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dogray7722/FitToScrape.git"
+  },
+  "author": "DaveDave",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dogray7722/FitToScrape/issues"
+  },
+  "homepage": "https://github.com/dogray7722/FitToScrape#readme",
+  "dependencies": {
+    "body-parser": "^1.18.0",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.10",
+    "request": "^2.81.0"
+  }
+}
