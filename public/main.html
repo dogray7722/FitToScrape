@@ -21,19 +21,30 @@
             <a href="#!" class="brand-logo black-text">Mongo Scraper</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
               <ul class="right hide-on-med-and-down">
-                <li><a class="waves-effect waves-light btn teal darken-2">Saved Articles <i class="material-icons right">description</i></a></li>
-                <li><a class="waves-effect waves-light btn teal darken-2">Scrape Articles<i class="material-icons right">sort</i></a></li>
+                <li><a class="waves-effect waves-light btn teal darken-2 modal-trigger">Saved Articles <i class="material-icons right">description</i></a></li>
+                <li><a class="waves-effect waves-light btn teal darken-2 modal-trigger" href="#scrape">Scrape Articles<i class="material-icons right">sort</i></a></li>
                </ul>
 
               <ul class="side-nav" id="mobile-demo">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Saved Articles</a></li>
-                <li><a href="#">Scrape Articles</a></li>
+                <li><a href="#scrape">Scrape Articles</a></li>
               </ul>
           </div>
         </nav>
+
+        <!-- Modals -->
+        <div id="scrape" class="modal">
+          <div class="modal-content">
+            <h4></h4>
+            <p>The text here will be dependent on if there are any new articles to scrape.  There will be some click event logic here that will initiate grabbing the element attributes from the BBC URL, and dropping them into the mongo db with all the correct parameters lined up in their proper places.  When the user saves articles, there will be a flag placed on the article, I guess a just a boolean of saved.  Don't think we are actually doing authentication in this case.</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+          </div>
+        </div>
         
-        <!-- Slider with three pics -->
+        <!-- Slider logic -->
         <div class="slider">
           <ul class="slides">
             <li>
@@ -76,12 +87,17 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
       <script>
+
+
         $(".button-collapse").sideNav();
         $(document).ready(function(){
           $('.slider').slider({
             indicators: false
           });
+          $('.modal').modal();
+
         });
+
 
       </script>
     </body>
