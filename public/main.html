@@ -1,0 +1,88 @@
+ <!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>BBC WebScraper</title>
+    </head>
+
+    <body>
+      <div>
+        <!-- Create Navigation -->
+        <nav>
+          <div class="nav-wrapper grey lighten-1">
+            <a href="#!" class="brand-logo black-text">Mongo Scraper</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+              <ul class="right hide-on-med-and-down">
+                <li><a class="waves-effect waves-light btn teal darken-2">Saved Articles <i class="material-icons right">description</i></a></li>
+                <li><a class="waves-effect waves-light btn teal darken-2">Scrape Articles<i class="material-icons right">sort</i></a></li>
+               </ul>
+
+              <ul class="side-nav" id="mobile-demo">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Saved Articles</a></li>
+                <li><a href="#">Scrape Articles</a></li>
+              </ul>
+          </div>
+        </nav>
+        
+        <!-- Slider with three pics -->
+        <div class="slider">
+          <ul class="slides">
+            <li>
+              <img src="assets/images/news2.jpg"" alt="news2">
+              <div class="caption right-align">
+                <h3>Mongo Scraper</h3>
+                <h5>Scrape Articles from the BBC</h5>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Collapsible popout logic -->
+        <div>
+         <ul class="collapsible popout" data-collapsible="accordion">
+            <li>
+              <div class="collapsible-header active">First</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque magni, pariatur modi, sequi tempore aperiam magnam fugit dicta odit, numquam officia expedita veniam temporibus necessitatibus eveniet ex quisquam, culpa placeat.</span>
+              <a class="waves-effect waves-light btn deep-purple lighten-1">Save</a>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header">Second</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span>
+               <a class="btn-floating btn-large waves-effect waves-light red">Save</a>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header">Third
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+          </ul>
+        </div><!-- End Collapsable Popouts -->
+
+
+      </div><!-- End Container div -->
+
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+      <script>
+        $(".button-collapse").sideNav();
+        $(document).ready(function(){
+          $('.slider').slider({
+            indicators: false
+          });
+        });
+
+      </script>
+    </body>
+  </html>
