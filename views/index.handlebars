@@ -1,0 +1,18 @@
+<!-- Collapsible popout logic -->
+<div>
+<ul class="collapsible popout" data-collapsible="accordion">
+    {{#each article}}
+        {{#unless this.saved}}
+            <li>
+                <div class="collapsible-header">{{this.headline}}</div>
+                <div class="collapsible-body"><span>{{this.summary}}</span>
+                    <a class="waves-effect waves-light btn deep-purple lighten-1">{{this.url}}</a>
+                </div>
+            </li>
+        {{/unless}}
+    {{/each}}
+</ul>
+</div><!-- End Collapsable Popouts -->
+
+
+
