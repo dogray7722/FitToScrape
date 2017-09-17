@@ -1,14 +1,14 @@
 const express = require('express');
-const articles = require('../models/articles');
-const notes = require('../models/notes');
-
+const Article = require('../models/articles');
+const Note = require('../models/notes');
 
 const router = express.Router();
 
 module.exports = function(app) {
 
     app.get('/', function (req, res) {
-        res.render('index')
+        var articles = Article.find();
+        res.render('index', { articles: articles});
     });
 
 
