@@ -3,8 +3,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cheerio = require('cheerio');
 const request = require('request');
-const articles = require('./models/articles');
-const notes = require('./models/notes');
 const path = require('path');
 
 //Use Javascript ES6 Mongoose Promises
@@ -24,8 +22,14 @@ const exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-//Connect to mongoscraper database
+//Require file with routing logic and declare root routing file
+require('./controllers/routes')(app);
 
+const routes = require('./controllers/routes');
+
+app.use('/', routes);
+
+//Connect to mongoscraper database
 mongoose.connect("mongodb://localhost/mongoscraper");
 var db = mongoose.connection;
 
@@ -38,41 +42,7 @@ db.once("open", function() {
    console.log("Mongoose connection successful.");
 });
 
-//R
-
-
-
-//Initial Test routes:  These will be moved into the routes directory once working
-
-app.get('/', function(req, res) {
-    res.render('index')
-});
-
-
-app.get('/articles', function(req, res) {
-    articles.find({}, function(err, doc){
-        if(err){
-            console.log(err);
-        }
-        else{
-            res.json(doc);
-        }
-    });
-});
-
-app.get('/saved', function(req, res) {
-    articles.find({saved: true}, function(err, doc){
-        if(err){
-            console.log(err);
-        }
-        else{
-            res.json(doc);
-        }
-    });
-});
-
-
-
+//Express server listen logic
 app.listen(PORT, function() {
     console.log('Listening on port ' + PORT);
 });
