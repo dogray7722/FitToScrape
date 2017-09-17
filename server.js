@@ -24,10 +24,7 @@ app.set('view engine', 'handlebars');
 
 //Require file with routing logic and declare root routing file
 require('./controllers/routes')(app);
-
-const routes = require('./controllers/routes');
-
-app.use('/', routes);
+require('./controllers/apiroutes')(app);
 
 //Connect to mongoscraper database
 mongoose.connect("mongodb://localhost/mongoscraper");

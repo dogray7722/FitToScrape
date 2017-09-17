@@ -13,26 +13,9 @@ module.exports = function(app) {
         });
     });
 
-
-    app.get('/api/articles', function (req, res) {
-        articles.find({}, function (err, doc) {
-            if (err) {
-                console.log(err);
-            }
-            else {
-                res.json(doc);
-            }
-        });
-    });
-
-    app.get('/api/saved', function (req, res) {
-        articles.find({saved: true}, function (err, doc) {
-            if (err) {
-                console.log(err);
-            }
-            else {
-                res.json(doc);
-            }
+    app.get('/saved', function (req, res) {
+        Article.find(function(err, docs){
+            res.render('saved', { articles: docs});    
         });
     });
 
