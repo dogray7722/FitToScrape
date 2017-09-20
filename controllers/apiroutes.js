@@ -18,6 +18,18 @@ module.exports = function(app) {
         });
     });
 
+    app.put('/api/articles/:id', function(req, res){
+        Article.findByIdAndUpdate(req.params.id, {saved: true}, function(err, doc){
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.json(doc);
+            }
+        })
+    });
+
+
     app.get('/api/saved', function (req, res) {
         Article.find({saved: true}, function (err, doc) {
             if (err) {
@@ -37,7 +49,6 @@ module.exports = function(app) {
             }
             else {
                 res.json(doc);
-                // res.redirect('/saved');
             }
         })
     })
