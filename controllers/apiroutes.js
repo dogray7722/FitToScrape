@@ -28,4 +28,17 @@ module.exports = function(app) {
             }
         });
     });
-}
+
+
+    app.put('/api/saved/:id', function(req, res){
+        Article.findByIdAndUpdate(req.params.id, {saved: false}, function(err, doc){
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.json(doc);
+                // res.redirect('/saved');
+            }
+        })
+    })
+};
