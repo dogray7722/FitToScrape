@@ -21,7 +21,7 @@ const exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-//Require file with routing logic and declare root routing file
+//Require files with our routing logic
 require('./controllers/routes')(app);
 require('./controllers/apiroutes')(app);
 
