@@ -7,12 +7,23 @@
                 <div class="collapsible-header active">
                     <a href="{{this.link}}" target="_blank"><h5>{{this.headline}}</h5></a></div>
                 <div class="collapsible-body"><span>{{this.summary}}</span>
-                    <a class="notes waves-effect waves-light btn teal lighten-1 z-depth-5 right">Add Note</a>
+                    <a class="notes waves-effect waves-light btn modal-trigger teal lighten-1 z-depth-5 right" href="#notesModal">Add Note</a>
                     <a class="delete waves-effect waves-light btn yellow darken-5 z-depth-5 right" data-id="{{this.id}}">Delete Article</a>
                 </div>
             </li>
         {{/if}}
     {{/each}}
+
+    <div id="notesModal" class="modal">
+        <div class="modal-content">
+            <h4></h4>
+            <p>This is our notes modal</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+        </div>
+    </div>
+
 </ul>
 </div><!-- End Collapsable Popouts -->
 
