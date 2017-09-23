@@ -53,8 +53,26 @@ module.exports = function(app) {
                 res.json(doc);
             }
         })
-    })
+    });
 
-
-
+    //Route to create notes
+    app.post('/api/articles/:id', function(req, res){
+        var newNote = new Note(req.body);
+        newNote.save(function(err, doc){
+            if (err) {
+                console.log(err);
+            }
+            else {
+                Article.findOneAndUpdate({ "_id": req.params.id }, { "note": doc_id})
+                    .exec(function(err, doc){
+                        if (err) {
+                            console.log(err);
+                        }
+                        else {
+                            res.send(doc);
+                        }
+                    })
+                }
+            })
+        });
 };
