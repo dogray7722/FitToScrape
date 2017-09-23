@@ -8,7 +8,7 @@ $(document).ready(function(){
     $('.modal').modal();
 });
 
-//On click of the saved articles button send render the saved handlebars templated
+//On click of the saved articles button send render the saved handlebars template
 $("#saved").on("click", function(event){
     event.preventDefault();
     window.location.href = "/saved"
@@ -36,3 +36,12 @@ $(".delete").on("click", function(event){
 });
 
 
+//Make a post request for our add note click event
+$("#updateNote").on("click", function(event) {
+    event.preventDefault();
+    var newComment = {noteBody : $("#textarea").val().trim() };
+    console.log(newComment);
+    $.post("/api/articles", newComment, function(data) {
+        window.location.href = "/saved"
+    })
+});

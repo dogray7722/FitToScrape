@@ -6,7 +6,7 @@ const router = express.Router();
 
 module.exports = function(app) {
 
-
+    //List the scraped articles on the main page.
     app.get('/api/articles', function (req, res) {
         Article.find({}, function (err, doc) {
             if (err) {
@@ -18,6 +18,7 @@ module.exports = function(app) {
         });
     });
 
+    //Update saved parameter of article when saved button is clicked
     app.put('/api/articles/:id', function(req, res){
         Article.findByIdAndUpdate(req.params.id, {saved: true}, function(err, doc){
             if (err) {
@@ -29,7 +30,7 @@ module.exports = function(app) {
         })
     });
 
-
+    //Collect articles that have been saved when user navigates to the saved page
     app.get('/api/saved', function (req, res) {
         Article.find({saved: true}, function (err, doc) {
             if (err) {
@@ -42,6 +43,7 @@ module.exports = function(app) {
     });
 
 
+    //Handle removed from saved
     app.put('/api/saved/:id', function(req, res){
         Article.findByIdAndUpdate(req.params.id, {saved: false}, function(err, doc){
             if (err) {
@@ -52,4 +54,7 @@ module.exports = function(app) {
             }
         })
     })
+
+
+
 };
