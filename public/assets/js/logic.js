@@ -65,5 +65,8 @@ $("#addNote").on("click", function() {
     })
         .done(function(data){
             console.log(data);
+            $("#cardTitle").html("Note for article: " + data._id)
+
         })
 });
+

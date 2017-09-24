@@ -77,6 +77,41 @@
 
 </div><!-- End Container div -->
 
+<!-- This is our Notes Modal -->
+<div id="notesModal" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <div>
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span id="cardTitle" class="card-title"></span>
+                        <p id="bodyinput">I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h4>Add a Comment</h4>
+        <div class="row">
+            <form>
+                <div class="row">
+                    <div class="input-field">
+                        <textarea id="comment" class="materialize-textarea"></textarea>
+                        <label for="comment">Comment</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" id="updateNote" class="modal-action modal-close waves-effect waves-green btn-flat">Update</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+    </div>
+</div>
+
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

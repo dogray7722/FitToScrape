@@ -65,7 +65,7 @@ module.exports = function(app) {
                     console.log(error);
                 }
                 else{
-                    res.json( {id: doc._id});
+                    res.json(doc);
                     // console.log(doc._id);
                 }
             })
