@@ -36,12 +36,34 @@ $(".delete").on("click", function(event){
 });
 
 
-//Make a post request for our add note click event
-$("#updateNote").on("click", function(event) {
-    event.preventDefault();
-    var newComment = {noteBody : $("#textarea").val().trim() };
-    console.log(newComment);
-    $.post("/api/articles", newComment, function(data) {
-        window.location.href = "/saved"
+//Get request to load notes associated with an article on click of the add note button
+
+$("addNote").on("click", function(event) {
+    var thisId = $(this).attr("data-id");
+
+    $.ajax({
+        method: "GET",
+        url: '/api/saved/' + thisId
     })
+    .done(function(data){
+      console.log(data);
+      if (data.note){
+          $("#bodyinput").val(data.note.body);
+      }
+    })
+});
+
+
+//Get articles that have notes attached for rendering in the Add Note modal
+$("#addNote").on("click", function() {
+    var thisId = $(this).attr("data-id");
+    console.log(thisId);
+
+    $.ajax({
+        method: "GET",
+        url: "/api/notes/" + thisId
+    })
+        .done(function(data){
+            console.log(data);
+        })
 });

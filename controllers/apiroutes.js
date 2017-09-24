@@ -55,24 +55,25 @@ module.exports = function(app) {
         })
     });
 
-    //Route to create notes
-    app.post('/api/articles/:id', function(req, res){
-        var newNote = new Note(req.body);
-        newNote.save(function(err, doc){
-            if (err) {
-                console.log(err);
-            }
-            else {
-                Article.findOneAndUpdate({ "_id": req.params.id }, { "note": doc_id})
-                    .exec(function(err, doc){
-                        if (err) {
-                            console.log(err);
-                        }
-                        else {
-                            res.send(doc);
-                        }
-                    })
+
+    //Populate articles with notes
+    app.get('/api/notes/:id', function(req, res){
+        Article.findOne({"_id": req.params.id })
+            .populate("note")
+            .exec(function(error, doc){
+                if(error){
+                    console.log(error);
+                }
+                else{
+                    res.json( {id: doc._id});
+                    // console.log(doc._id);
                 }
             })
+        });
+
+
+    //Route to create notes
+    app.post('/api/articles/:id', function(req, res){
+
         });
 };
